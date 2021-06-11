@@ -5,20 +5,25 @@
 
 
 var numeriRandom =[];
-for (var i = 0; i < 5; i++) {
+
+while (numeriRandom.length < 5) {
     
-    var random = randomNum(1,100);
-    numeriRandom.push(random);
+    var numRan = (randomNumb(1,100));
+    if (!numeriRandom.includes(numRan)) {
+        numeriRandom.push(numRan); 
+    }
     
 }
+
 console.log(numeriRandom);
-setTimeout(numeriRicordi, 5000);
+
 
 alert(numeriRandom + 'memorizza questi numeri');
 
-
 var risultato = numeriRicordi();
 console.log(risultato);
+
+
 
 for (var i = 0; i < risultato.length; i++) {
     
@@ -33,7 +38,16 @@ for (var i = 0; i < risultato.length; i++) {
 
 
 
-
+var timer = 30;
+var scorrimento = setInterval(function(){
+  if(timer == 0){
+    clearInterval(scorrimento);
+    
+  }else {
+    console.log(timer + " secondi rimanenti");
+  }
+  timer -= 1;
+}, 1000);
 
 
 
@@ -45,7 +59,7 @@ for (var i = 0; i < risultato.length; i++) {
 
 // **** SEZIONE FUNZIONI*****
 
-function randomNum(min, max) {
+function randomNumb(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
 
@@ -54,7 +68,12 @@ function numeriRicordi() {
     var array = [];
     for (var i = 0; i < 5; i++) {
         var numUtente = parseInt(prompt('Inserisci uno alla volta numeri che hai visualizzato prima!'));
-        array.push(numUtente); 
+        if (!array.includes(numUtente)) {
+            array.push(numUtente); 
+        }else{
+            array.push(numUtente);
+            alert ('errore ripetizione numero inserire nuovo numero');
+        }
     }
     return array;
 }
