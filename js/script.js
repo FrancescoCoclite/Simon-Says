@@ -20,33 +20,27 @@ console.log(numeriRandom);
 
 alert(numeriRandom + 'memorizza questi numeri');
 
-var risultato = numeriRicordi();
-console.log(risultato);
 
-
-
-for (var i = 0; i < risultato.length; i++) {
-    
-
-    if(risultato[i] == numeriRandom[i]){
-        console.log(risultato[i] + ' Numero corretto');
-    }else{
-        console.log(risultato[i] + ' Numero sbagliato');
-    }
-    
-}
-
-
-
-var timer = 30;
+var timer = 5;
 var scorrimento = setInterval(function(){
-  if(timer == 0){
-    clearInterval(scorrimento);
-    
-  }else {
-    console.log(timer + " secondi rimanenti");
-  }
-  timer -= 1;
+    if(timer == 0){
+        clearInterval(scorrimento);
+        var risultato = numeriRicordi();
+        console.log(risultato);
+        for (var i = 0; i < risultato.length; i++) {
+            
+        
+            if(risultato[i] == numeriRandom[i]){
+                console.log(risultato[i] + ' Numero corretto');
+            }else{
+                console.log(risultato[i] + ' Numero sbagliato');
+            }
+            
+        }
+    }else {
+        console.log(timer + " secondi rimanenti");
+    }
+    timer -= 1;
 }, 1000);
 
 
