@@ -5,19 +5,38 @@
 
 
 var numeriRandom =[];
-for (let i = 0; i < 5; i++) {
+for (var i = 0; i < 5; i++) {
     
     var random = randomNum(1,100);
     numeriRandom.push(random);
     
 }
+console.log(numeriRandom);
+setTimeout(numeriRicordi, 5000);
 
-alert(numeriRandom);
+alert(numeriRandom + 'memorizza questi numeri');
 
-var risultato = setTimeout(numeriRicordi, 1000);
 
-// var nuova = numeriRicordi();
-// console.log(nuova);
+var risultato = numeriRicordi();
+console.log(risultato);
+
+for (var i = 0; i < risultato.length; i++) {
+    
+
+    if(risultato[i] == numeriRandom[i]){
+        console.log(risultato[i] + ' Numero corretto');
+    }else{
+        console.log(risultato[i] + ' Numero sbagliato');
+    }
+    
+}
+
+
+
+
+
+
+
 
 
 
@@ -30,16 +49,13 @@ function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
 
+
 function numeriRicordi() {
-    for (let i = 0; i < 5; i++) {
-
-    
+    var array = [];
+    for (var i = 0; i < 5; i++) {
         var numUtente = parseInt(prompt('Inserisci uno alla volta numeri che hai visualizzato prima!'));
-
-        console.log(numUtente[i]);
- 
-        
-        
+        array.push(numUtente); 
     }
-
+    return array;
 }
+
